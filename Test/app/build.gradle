@@ -25,3 +25,22 @@ dependencies {
     testCompile 'org.testng:testng:6.8'
     compile 'com.android.support:appcompat-v7:24.2.0'
 }
+
+ProjectVersion version = new ProjectVersion(0,1)
+
+class ProjectVersion {
+    Integer minor
+    Integer major
+    Boolean release
+
+    ProjectVersion(Integer minor,Integer major){
+        this.minor = minor
+        this.major = major
+        this.release = Boolean.FALSE
+    }
+
+    @Override
+    String toString() {
+        "$major.$minor"${release ? '' : '-SNAPSHOT'}
+    }
+}
